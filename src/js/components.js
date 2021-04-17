@@ -1,5 +1,4 @@
 export function weatherCard(data) {
-  console.log(data);
   const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
   return `
