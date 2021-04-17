@@ -37,6 +37,10 @@ Make sure you have [node.js](https://nodejs.org/) installed on your local machin
 4. Run `yarn serve` to start the application on your localhost
 5. Head over to your browser and open `localhost:8080` to view app.
 
+##### BUILD
+
+- Run `yarn build` to bundle app into `dist` folder.
+
 ---
 
 <!-- **Without `Node.js`**
