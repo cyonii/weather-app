@@ -1,15 +1,23 @@
 import './index.html';
 import './scss/style.scss';
+import getWeatherData from './js/weather';
+import { handleWeatherData } from './js/utils';
+import { spinners } from './js/components';
 
 const apiKey = '';
+const searchForm = document.getElementById('searchForm');
+const submitButton = searchForm.querySelector('[type="submit"]');
+const weatherDataEl = document.getElementById('weatherData');
 
-async function getWeatherData(location) {
-  const baseURL = 'http://api.openweathermap.org/data/2.5/weather';
-  const fullURL = `${baseURL}?q=${location}&APPID=${apiKey}`;
+searchForm.onsubmit = async (event) => {
+  event.preventDefault();
+  submitButton.disabled = true;
 
-  await fetch(fullURL, { mode: 'cors' })
-    .then((response) => response.json())
-    .then((data) => console.log(data));
-}
+  weatherDataEl.innerHTML = spinners();
+  const searchInput = event.currentTarget.querySelector('#search');
 
-getWeatherData('Lagos');
+  await getWeatherData(searchInput.value, apiKey).then(handleWeatherData);
+  weatherDataEl.classList.remove('d-none');
+  submitButton.disabled = false;
+  searchInput.select();
+};
