@@ -33,13 +33,13 @@ Make sure you have [node.js](https://nodejs.org/) installed on your local machin
 1. To clone a copy of this repo, `cd` into the directory you would want to save the repo and run
    `git clone git@github.com:cyonii/weather-app.git`
 2. Once cloned, change into the cloned repo with `cd weather-app` to change into the project's directory.
-3. Run `yarn install` to install the project's dependencies.
-4. Run `yarn serve` to start the application on your localhost
+3. Run `npm install` to install the project's dependencies.
+4. Run `npm run serve` to start the application on your localhost
 5. Head over to your browser and open `localhost:8080` to view app.
 
 ##### BUILD
 
-- Run `yarn build` to bundle app into `dist` folder.
+- Run `npm run build` to bundle app into `dist` folder.
 
 ---
 
