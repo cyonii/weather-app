@@ -1,8 +1,8 @@
 import { errorAlert, weatherCard } from './components';
 
-export function displayWeatherData(data) {
+export function displayWeatherData(data, unit) {
   const el = document.getElementById('weatherData');
-  el.innerHTML = weatherCard(data);
+  el.innerHTML = weatherCard(data, unit);
 }
 
 export function alertError(data) {
@@ -10,7 +10,7 @@ export function alertError(data) {
   el.innerHTML = errorAlert(data.message);
 }
 
-export function handleWeatherData(data) {
-  if (data.cod < 300) displayWeatherData(data);
+export function handleWeatherData(data, unit) {
+  if (data.cod < 300) displayWeatherData(data, unit);
   else alertError(data);
 }

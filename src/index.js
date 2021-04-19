@@ -12,12 +12,16 @@ const weatherDataEl = document.getElementById('weatherData');
 searchForm.onsubmit = async (event) => {
   event.preventDefault();
   submitButton.disabled = true;
-
   weatherDataEl.innerHTML = spinners();
-  const searchInput = event.currentTarget.querySelector('#search');
 
-  await getWeatherData(searchInput.value, apiKey).then(handleWeatherData);
-  weatherDataEl.classList.remove('d-none');
+  const formData = new FormData(searchForm);
+  const searchInput = formData.get('search');
+  const unitInput = formData.get('unit');
+  const unitSymbol = unitInput === 'metric' ? '°C' : '°F';
+
+  await getWeatherData(searchInput, unitInput, apiKey).then((data) => {
+    handleWeatherData(data, unitSymbol);
+  });
   submitButton.disabled = false;
-  searchInput.select();
+  searchForm.querySelector('[name="search"]').select();
 };

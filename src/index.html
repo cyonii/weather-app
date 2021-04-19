@@ -26,8 +26,19 @@
               <form class="row" action="#" id="searchForm">
                 <div class="col-12 mb-3">
                   <label for="search" class="form-label"></label>
-                  <input type="text" class="form-control" id="search" required autofocus
+                  <input type="text" class="form-control" id="search" name="search" required autofocus
                     placeholder="Enter location to get weather update">
+                </div>
+
+                <div class="col-12 mb-3">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="unit" id="celcius" value="metric" checked>
+                    <label class="form-check-label" for="celcius">Celcius</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="unit" id="fahrenheit" value="imperial">
+                    <label class="form-check-label" for="fahrenheit">Fahrenheit</label>
+                  </div>
                 </div>
 
                 <div class="col-12 text-center">

@@ -1,4 +1,4 @@
-export function weatherCard(data) {
+export function weatherCard(data, unit) {
   const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
   return `
@@ -11,12 +11,12 @@ export function weatherCard(data) {
     <div class="card-body row gx-1">
       <div class="col-6 col-lg-4 col-xl-3 mb-3">
         <h6>Main Info</h6>
-        <p class="mb-0"><span>Feels like:</span> <b>${data.main.feels_like}</b></p>
-        <p class="mb-0"><span>Humidity:</span> <b>${data.main.humidity}</b></p>
-        <p class="mb-0"><span>Pressure:</span> <b>${data.main.pressure}</b></p>
-        <p class="mb-0"><span>Temperature:</span> <b>${data.main.temp}</b></p>
-        <p class="mb-0"><span>Max Temp:</span> <b>${data.main.temp_max}</b></p>
-        <p class="mb-0"><span>Min Temp:</span> <b>${data.main.temp_min}</b></p>
+        <p class="mb-0"><span>Feels like:</span> <b>${data.main.feels_like}<i class="fw-light">${unit}</i></b></p>
+        <p class="mb-0"><span>Humidity:</span> <b>${data.main.humidity}<i class="fw-light">%</i></b></p>
+        <p class="mb-0"><span>Pressure:</span> <b>${data.main.pressure}<i class="fw-light">hPa</i></b></p>
+        <p class="mb-0"><span>Temperature:</span> <b>${data.main.temp}<i class="fw-light">${unit}</i></b></p>
+        <p class="mb-0"><span>Max Temp:</span> <b>${data.main.temp_max}<i class="fw-light">${unit}</i></b></p>
+        <p class="mb-0"><span>Min Temp:</span> <b>${data.main.temp_min}<i class="fw-light">${unit}</i></b></p>
       </div>
 
       <div class="col-6 col-lg-4 col-xl-3 mb-3">
@@ -39,9 +39,9 @@ export function weatherCard(data) {
 
       <div class="col-6 col-lg-4 col-xl-3 mb-3">
         <h6>Wind Info</h6>
-        <p class="mb-0"><span>Degrees:</span> <b>${data.wind.deg}</b></p>
+        <p class="mb-0"><span>Degrees:</span> <b>${data.wind.deg}°</b></p>
         <p class="mb-0"><span>Gust:</span> <b>${data.wind.gust}</b></p>
-        <p class="mb-0"><span>Speed:</span> <b>${data.wind.speed}</b></p>
+        <p class="mb-0"><span>Speed:</span> <b>${data.wind.speed}<i class="fw-light">m/s</i></b></p>
       </div>
     </div>
   </div>`;
