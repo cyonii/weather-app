@@ -16,7 +16,7 @@ This application is built with the following tools and libraries:
 
 ## Live Demo
 
-You can check out a live demo of this application [here](dist/index.html/)
+You can check out a live demo of this application [here](https://cykalu.me/weather-app/dist/index.html)
 
 ## Getting Started
 
@@ -69,7 +69,7 @@ Make sure you have [node.js](https://nodejs.org/) installed on your local machin
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/cyonii/weather-app/issues/).
 
 ## Show your support
 
