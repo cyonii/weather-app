@@ -7493,6 +7493,9 @@ textarea.form-control-lg {
 .weather-card p b {
   font-size: 15px; }
 
+.weather-card p i {
+  color: #6c757d; }
+
 .weather-card .weather-icon-wrapper {
   width: 80px;
   height: 80px; }

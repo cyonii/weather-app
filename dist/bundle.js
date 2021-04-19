@@ -82,7 +82,7 @@ function _getWeatherData() {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            baseURL = 'http://api.openweathermap.org/data/2.5/weather';
+            baseURL = 'https://api.openweathermap.org/data/2.5/weather';
             fullURL = "".concat(baseURL, "?q=").concat(location, "&APPID=").concat(apiKey, "&units=").concat(unit);
             return _context.abrupt("return", fetch(fullURL, {
               mode: 'cors'
