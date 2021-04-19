@@ -2,13 +2,13 @@
 
 ## Description
 
-Weather app is a web application that shows the current weather information about a given location.
+Weather app - is a web application that shows the current weather information about a given location.
 
 ## Built
 
 This application is built with the following tools and libraries:
 
-- Javascdript
+- Javascript
 - Bootstrap
 - HTML
 - CSS (SASS)
