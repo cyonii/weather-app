@@ -17,7 +17,7 @@ This application is built using the following tools and libraries:
 
 ## Live Demo
 
-You can check out a live demo of this application [here](https://cykalu.me/weather-app/dist/)
+You can check out a live demo of this application [here](https://cykalu.me/weather-app/)
 
 ## Usage
 
