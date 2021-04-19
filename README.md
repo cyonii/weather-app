@@ -17,7 +17,11 @@ This application is built using the following tools and libraries:
 
 ## Live Demo
 
-You can check out a live demo of this application [here](https://cykalu.me/weather-app/dist/index.html)
+You can check out a live demo of this application [here](https://cykalu.me/weather-app/dist/)
+
+## Usage
+
+**To get weather update:** Type in the location you'd want to search and hit the Search button. The app will fetch the weather info of the given location and display it on the browser, or an error message incase of an error.
 
 ## Getting Started
 
@@ -48,18 +52,13 @@ Open your `terminal` and follow the instructions below.
 
 ---
 
-<!-- **Without `Node.js`**
+**Without `Node.js`**
 
 - Download and unpack this repo from Github - `.zip` file.
 - Navigate into the unpacked project's directory
-- Find and open the `dist` folder
-- Open `index.html` file in your browser
+- Find and open the `dist/index.html` file in your browser
 
-> **_It's time to get productive_** -->
-
-## Usage
-
-**To get weather update:** Type in the location you'd want to search and hit the Search button. The app will fetch the weather info of the given location and display it on the browser, or an error message incase of an error.
+---
 
 ## Authors
 
