@@ -14,9 +14,9 @@ This application is built with the following tools and libraries:
 - CSS (SASS)
 - [OpenWeather](https://openweathermap.org/) API
 
-<!-- ## Live Demo
+## Live Demo
 
-You can check out a live demo of this application [here](https://cykalu.me/weather-app/dist) -->
+You can check out a live demo of this application [here](dist/index.html/)
 
 ## Getting Started
 
