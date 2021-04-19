@@ -14,9 +14,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "errorAlert": () => (/* binding */ errorAlert),
 /* harmony export */   "spinners": () => (/* binding */ spinners)
 /* harmony export */ });
-function weatherCard(data) {
+function weatherCard(data, unit) {
   var iconURL = "http://openweathermap.org/img/wn/".concat(data.weather[0].icon, "@2x.png");
-  return "\n  <div class=\"card weather-card border-0\">\n    <div class=\"card-header\">\n      <h5 class=\"mb-0 fw-light\">\n        Weather update for <b class=\"fw-bold\">".concat(data.name, ", ").concat(data.sys.country, "</b>\n      </h5>\n    </div>\n    <div class=\"card-body row gx-1\">\n      <div class=\"col-6 col-lg-4 col-xl-3 mb-3\">\n        <h6>Main Info</h6>\n        <p class=\"mb-0\"><span>Feels like:</span> <b>").concat(data.main.feels_like, "</b></p>\n        <p class=\"mb-0\"><span>Humidity:</span> <b>").concat(data.main.humidity, "</b></p>\n        <p class=\"mb-0\"><span>Pressure:</span> <b>").concat(data.main.pressure, "</b></p>\n        <p class=\"mb-0\"><span>Temperature:</span> <b>").concat(data.main.temp, "</b></p>\n        <p class=\"mb-0\"><span>Max Temp:</span> <b>").concat(data.main.temp_max, "</b></p>\n        <p class=\"mb-0\"><span>Min Temp:</span> <b>").concat(data.main.temp_min, "</b></p>\n      </div>\n\n      <div class=\"col-6 col-lg-4 col-xl-3 mb-3\">\n        <h6>Weather Info</h6>\n        <div class=\"weather-icon-wrapper\">\n          <img src=\"").concat(iconURL, "\">\n        </div>\n        <p class=\"mb-0\">\n          <span>Weather:</span>\n          <b>").concat(data.weather[0].main, "</b>\n        </p>\n        <p class=\"mb-0\"><span>Description:</span> <b>").concat(data.weather[0].description, "</b></p>\n      </div>\n\n      <div class=\"col-6 col-lg-4 col-xl-3 mb-3\">\n        <h6>Coordinates</h6>\n        <p class=\"mb-0\"><span>Latitude:</span> <b>").concat(data.coord.lat, "</b></p>\n        <p class=\"mb-0\"><span>Longitude:</span> <b>").concat(data.coord.lon, "</b></p>\n      </div>\n\n      <div class=\"col-6 col-lg-4 col-xl-3 mb-3\">\n        <h6>Wind Info</h6>\n        <p class=\"mb-0\"><span>Degrees:</span> <b>").concat(data.wind.deg, "</b></p>\n        <p class=\"mb-0\"><span>Gust:</span> <b>").concat(data.wind.gust, "</b></p>\n        <p class=\"mb-0\"><span>Speed:</span> <b>").concat(data.wind.speed, "</b></p>\n      </div>\n    </div>\n  </div>");
+  return "\n  <div class=\"card weather-card border-0\">\n    <div class=\"card-header\">\n      <h5 class=\"mb-0 fw-light\">\n        Weather update for <b class=\"fw-bold\">".concat(data.name, ", ").concat(data.sys.country, "</b>\n      </h5>\n    </div>\n    <div class=\"card-body row gx-1\">\n      <div class=\"col-6 col-lg-4 col-xl-3 mb-3\">\n        <h6>Main Info</h6>\n        <p class=\"mb-0\"><span>Feels like:</span> <b>").concat(data.main.feels_like, "<i class=\"fw-light\">").concat(unit, "</i></b></p>\n        <p class=\"mb-0\"><span>Humidity:</span> <b>").concat(data.main.humidity, "<i class=\"fw-light\">%</i></b></p>\n        <p class=\"mb-0\"><span>Pressure:</span> <b>").concat(data.main.pressure, "<i class=\"fw-light\">hPa</i></b></p>\n        <p class=\"mb-0\"><span>Temperature:</span> <b>").concat(data.main.temp, "<i class=\"fw-light\">").concat(unit, "</i></b></p>\n        <p class=\"mb-0\"><span>Max Temp:</span> <b>").concat(data.main.temp_max, "<i class=\"fw-light\">").concat(unit, "</i></b></p>\n        <p class=\"mb-0\"><span>Min Temp:</span> <b>").concat(data.main.temp_min, "<i class=\"fw-light\">").concat(unit, "</i></b></p>\n      </div>\n\n      <div class=\"col-6 col-lg-4 col-xl-3 mb-3\">\n        <h6>Weather Info</h6>\n        <div class=\"weather-icon-wrapper\">\n          <img src=\"").concat(iconURL, "\">\n        </div>\n        <p class=\"mb-0\">\n          <span>Weather:</span>\n          <b>").concat(data.weather[0].main, "</b>\n        </p>\n        <p class=\"mb-0\"><span>Description:</span> <b>").concat(data.weather[0].description, "</b></p>\n      </div>\n\n      <div class=\"col-6 col-lg-4 col-xl-3 mb-3\">\n        <h6>Coordinates</h6>\n        <p class=\"mb-0\"><span>Latitude:</span> <b>").concat(data.coord.lat, "</b></p>\n        <p class=\"mb-0\"><span>Longitude:</span> <b>").concat(data.coord.lon, "</b></p>\n      </div>\n\n      <div class=\"col-6 col-lg-4 col-xl-3 mb-3\">\n        <h6>Wind Info</h6>\n        <p class=\"mb-0\"><span>Degrees:</span> <b>").concat(data.wind.deg, "\xB0</b></p>\n        <p class=\"mb-0\"><span>Gust:</span> <b>").concat(data.wind.gust, "</b></p>\n        <p class=\"mb-0\"><span>Speed:</span> <b>").concat(data.wind.speed, "<i class=\"fw-light\">m/s</i></b></p>\n      </div>\n    </div>\n  </div>");
 }
 function errorAlert(message) {
   return "<div class=\"alert alert-danger\" role=\"alert\">".concat(message, "</div>");
@@ -42,16 +42,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components */ "./src/js/components.js");
 
-function displayWeatherData(data) {
+function displayWeatherData(data, unit) {
   var el = document.getElementById('weatherData');
-  el.innerHTML = (0,_components__WEBPACK_IMPORTED_MODULE_0__.weatherCard)(data);
+  el.innerHTML = (0,_components__WEBPACK_IMPORTED_MODULE_0__.weatherCard)(data, unit);
 }
 function alertError(data) {
   var el = document.getElementById('weatherData');
   el.innerHTML = (0,_components__WEBPACK_IMPORTED_MODULE_0__.errorAlert)(data.message);
 }
-function handleWeatherData(data) {
-  if (data.cod < 300) displayWeatherData(data);else alertError(data);
+function handleWeatherData(data, unit) {
+  if (data.cod < 300) displayWeatherData(data, unit);else alertError(data);
 }
 
 /***/ }),
@@ -71,20 +71,22 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function getWeatherData(_x, _x2) {
+function getWeatherData(_x, _x2, _x3) {
   return _getWeatherData.apply(this, arguments);
 }
 
 function _getWeatherData() {
-  _getWeatherData = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(location, apiKey) {
+  _getWeatherData = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(location, unit, apiKey) {
     var baseURL, fullURL;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             baseURL = 'http://api.openweathermap.org/data/2.5/weather';
-            fullURL = "".concat(baseURL, "?q=").concat(location, "&APPID=").concat(apiKey);
-            return _context.abrupt("return", fetch(fullURL).then(function (response) {
+            fullURL = "".concat(baseURL, "?q=").concat(location, "&APPID=").concat(apiKey, "&units=").concat(unit);
+            return _context.abrupt("return", fetch(fullURL, {
+              mode: 'cors'
+            }).then(function (response) {
               return response.json();
             }));
 
@@ -10048,7 +10050,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // Module
-var code = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Weather App</title>\n</head>\n\n<body>\n  <header>\n    <nav class=\"navbar navbar-expand-md navbar-light bg-light\">\n      <div class=\"container justify-content-center\">\n        <a href=\"#\" class=\"navbar-brand fw-bold m-0\">Weather App</a>\n      </div>\n    </nav>\n  </header>\n  <main>\n    <div class=\"container mt-5\">\n      <div class=\"row justify-content-center\">\n        <div class=\"col-sm-10 col-md-8 col-lg-6 col-xl-4\">\n          <div class=\"card shadow border-dark\">\n            <div class=\"card-body\">\n              <!-- Search form -->\n              <form class=\"row\" action=\"#\" id=\"searchForm\">\n                <div class=\"col-12 mb-3\">\n                  <label for=\"search\" class=\"form-label\"></label>\n                  <input type=\"text\" class=\"form-control\" id=\"search\" required autofocus\n                    placeholder=\"Enter location to get weather update\">\n                </div>\n\n                <div class=\"col-12 text-center\">\n                  <button type=\"submit\" class=\"btn btn-dark px-5\">Search</button>\n                </div>\n              </form>\n            </div>\n          </div>\n        </div>\n\n        <!-- Weather data -->\n        <div class=\"col-12 mt-5\">\n          <div class=\"row justify-content-center\">\n            <div class=\"col-sm-10 col-md-8\" id=\"weatherData\"></div>\n          </div>\n        </div>\n      </div>\n  </main>\n</body>\n\n</html>";
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"UTF-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Weather App</title>\n</head>\n\n<body>\n  <header>\n    <nav class=\"navbar navbar-expand-md navbar-light bg-light\">\n      <div class=\"container justify-content-center\">\n        <a href=\"#\" class=\"navbar-brand fw-bold m-0\">Weather App</a>\n      </div>\n    </nav>\n  </header>\n  <main>\n    <div class=\"container mt-5\">\n      <div class=\"row justify-content-center\">\n        <div class=\"col-sm-10 col-md-8 col-lg-6 col-xl-4\">\n          <div class=\"card shadow border-dark\">\n            <div class=\"card-body\">\n              <!-- Search form -->\n              <form class=\"row\" action=\"#\" id=\"searchForm\">\n                <div class=\"col-12 mb-3\">\n                  <label for=\"search\" class=\"form-label\"></label>\n                  <input type=\"text\" class=\"form-control\" id=\"search\" name=\"search\" required autofocus\n                    placeholder=\"Enter location to get weather update\">\n                </div>\n\n                <div class=\"col-12 mb-3\">\n                  <div class=\"form-check form-check-inline\">\n                    <input class=\"form-check-input\" type=\"radio\" name=\"unit\" id=\"celcius\" value=\"metric\" checked>\n                    <label class=\"form-check-label\" for=\"celcius\">Celcius</label>\n                  </div>\n                  <div class=\"form-check form-check-inline\">\n                    <input class=\"form-check-input\" type=\"radio\" name=\"unit\" id=\"fahrenheit\" value=\"imperial\">\n                    <label class=\"form-check-label\" for=\"fahrenheit\">Fahrenheit</label>\n                  </div>\n                </div>\n\n                <div class=\"col-12 text-center\">\n                  <button type=\"submit\" class=\"btn btn-dark px-5\">Search</button>\n                </div>\n              </form>\n            </div>\n          </div>\n        </div>\n\n        <!-- Weather data -->\n        <div class=\"col-12 mt-5\">\n          <div class=\"row justify-content-center\">\n            <div class=\"col-sm-10 col-md-8\" id=\"weatherData\"></div>\n          </div>\n        </div>\n      </div>\n  </main>\n</body>\n\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -10946,7 +10948,7 @@ var weatherDataEl = document.getElementById('weatherData');
 
 searchForm.onsubmit = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
-    var searchInput;
+    var formData, searchInput, unitInput, unitSymbol;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -10954,16 +10956,20 @@ searchForm.onsubmit = /*#__PURE__*/function () {
             event.preventDefault();
             submitButton.disabled = true;
             weatherDataEl.innerHTML = (0,_js_components__WEBPACK_IMPORTED_MODULE_4__.spinners)();
-            searchInput = event.currentTarget.querySelector('#search');
-            _context.next = 6;
-            return (0,_js_weather__WEBPACK_IMPORTED_MODULE_2__.default)(searchInput.value, apiKey).then(_js_utils__WEBPACK_IMPORTED_MODULE_3__.handleWeatherData);
-
-          case 6:
-            weatherDataEl.classList.remove('d-none');
-            submitButton.disabled = false;
-            searchInput.select();
+            formData = new FormData(searchForm);
+            searchInput = formData.get('search');
+            unitInput = formData.get('unit');
+            unitSymbol = unitInput === 'metric' ? '°C' : '°F';
+            _context.next = 9;
+            return (0,_js_weather__WEBPACK_IMPORTED_MODULE_2__.default)(searchInput, unitInput, apiKey).then(function (data) {
+              (0,_js_utils__WEBPACK_IMPORTED_MODULE_3__.handleWeatherData)(data, unitSymbol);
+            });
 
           case 9:
+            submitButton.disabled = false;
+            searchForm.querySelector('[name="search"]').select();
+
+          case 11:
           case "end":
             return _context.stop();
         }
